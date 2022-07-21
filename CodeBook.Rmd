@@ -1,0 +1,14 @@
+---
+title: "CodeBook"
+author: "lunardiplomat"
+date: "2022-07-21"
+output: html_document
+---
+
+This markdown file was created for the purpose of guiding you through the run_analysis.R script included in this repository.  It consists of 4 steps.
+
+1. Read in all of the loose data from the original set, merge the training and test data such that one workable set is created.  We do this with read.csv and subsetting.
+2. Extract the elements from that larger set which have to do with the measurements that we are interested in.  For this project we were interested in the mean and the standard deviation.  We do this by subsetting and using grepl to find string patterns.
+3. Next we need to take the non-measurement data and incorporate it into the set.  We do this by reading the factor data and assigning names.
+4. Finally we bind this together with our existing set using cbind.  This gives us another single workable object, but we still need some final tidying.  We use the melt() and cast() functions from the reshape2 library in order to array our rough set into data which can be analyzed more easily and reformat it after drawing out the averages. 
+5. Lastly we simply write our new set to disk using write.csv().  
